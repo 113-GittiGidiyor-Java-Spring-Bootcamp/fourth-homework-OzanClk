@@ -1,5 +1,6 @@
 /**
  * This service class performs the operations for the instructor.
+ *
  * @author ozancelik
  */
 
@@ -54,17 +55,18 @@ public class InstructorService implements BaseService<InstructorDTO> {
     }
 
     @Override
-    public Optional<?> update(InstructorDTO object) {
-        return Optional.empty();
+    public Optional<Instructor> update(InstructorDTO instructorDTO) {
+        Instructor instructor = instructorMapper.mappingFromInstructorDTOtoInstructor(instructorDTO);
+        return Optional.of(instructorRepository.save(instructor));
     }
 
     @Override
-    public Iterable<?> findByAll() {
-        return null;
+    public Iterable<Instructor> findByAll() {
+        return instructorRepository.findAll();
     }
 
     @Override
-    public void deleteById(int id) {
-
+    public void deleteById(long id) {
+        instructorRepository.deleteById(id);
     }
 }

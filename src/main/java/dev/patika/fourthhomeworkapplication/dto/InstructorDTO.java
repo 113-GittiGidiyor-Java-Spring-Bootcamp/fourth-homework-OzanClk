@@ -11,15 +11,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class InstructorDTO {
 
-    @ApiModelProperty("VisitingResearcher")
+    @ApiModelProperty(hidden = true)
+    private long id;
+
+    @ApiModelProperty(example = "VisitingResearcher")
     private String type;
+
     @ApiModelProperty(example = "Mustafa")
     private String instructorName;
+
     @ApiModelProperty(example = "Istanbul")
     private String address;
+
     @ApiModelProperty(example = "5554443312")
     private String phoneNumber;
-    @ApiModelProperty(example = "2000")
+
+    @ApiModelProperty(example = "200")
     private double salary;
 
 

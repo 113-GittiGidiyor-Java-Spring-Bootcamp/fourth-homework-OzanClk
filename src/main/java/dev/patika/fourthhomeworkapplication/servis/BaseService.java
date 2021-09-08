@@ -16,6 +16,6 @@ public interface BaseService<T> {
 
     Iterable<?> findByAll();
 
-    void deleteById(int id);
+    void deleteById(long id);
 
 }

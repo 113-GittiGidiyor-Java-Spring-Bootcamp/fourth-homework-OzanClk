@@ -20,18 +20,14 @@ public class ExceptionController {
     @Autowired
     ExceptionService exceptionService;
 
-    @GetMapping("/getLogsByDate/{startDate}/{endDate}")
+    @GetMapping("/get-logs-by-date/{startDate}/{endDate}")
     public ResponseEntity<List<ApplicationErrorsResponseEntity>> getLogsByDate(@PathVariable String startDate, @PathVariable String endDate) {
-
         return new ResponseEntity<>(exceptionService.findLogByDateRange(startDate, endDate).get(), HttpStatus.OK);
-
     }
 
-    @GetMapping("/getLogsByErrorType/{errorType}")
+    @GetMapping("/get-logs-by-errorType/{errorType}")
     public ResponseEntity<List<ApplicationErrorsResponseEntity>> getLogsByErrorType(@PathVariable int errorType) {
-
         return new ResponseEntity<>(exceptionService.findLogByErrorType(errorType).get(), HttpStatus.OK);
-
     }
 
 

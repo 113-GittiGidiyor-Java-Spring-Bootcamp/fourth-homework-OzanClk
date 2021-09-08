@@ -1,5 +1,6 @@
 /**
  * This service class performs the operations for the course.
+ *
  * @author ozancelik
  */
 
@@ -51,23 +52,24 @@ public class CourseService implements BaseService<CourseDTO> {
     }
 
     @Override
-    public Optional<?> findById(long id) {
-        return Optional.empty();
+    public Optional<Course> findById(long id) {
+        return courseRepository.findById(id);
     }
 
     @Override
-    public Optional<?> update(CourseDTO object) {
-        return Optional.empty();
+    public Optional<?> update(CourseDTO courseDTO) {
+        Course course = courseMapper.mappingFromCourseDTOtoCourse(courseDTO);
+        return Optional.of(courseRepository.save(course));
     }
 
     @Override
-    public Iterable<?> findByAll() {
-        return null;
+    public Iterable<Course> findByAll() {
+        return courseRepository.findAll();
     }
 
     @Override
-    public void deleteById(int id) {
-
+    public void deleteById(long id) {
+        courseRepository.deleteById(id);
     }
 
     /**

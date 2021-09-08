@@ -17,6 +17,9 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class StudentDTO {
 
+    @ApiModelProperty(hidden = true)
+    private long id;
+
     @ApiModelProperty(example = "Mustafa")
     private String name;
 

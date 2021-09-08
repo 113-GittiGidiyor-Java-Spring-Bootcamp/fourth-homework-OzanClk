@@ -1,5 +1,6 @@
 /**
  * This service class performs the operations for the student.
+ *
  * @author ozancelik
  */
 
@@ -56,27 +57,26 @@ public class StudentService implements BaseService<StudentDTO> {
     }
 
     @Override
-    public Optional<?> findById(long id) {
-        return Optional.empty();
+    public Optional<Student> findById(long id) {
+        Optional<Student> student = studentRepository.findById(id);
+        return student;
     }
 
     @Override
-    public Optional<?> update(StudentDTO object) {
-        return Optional.empty();
+    public Optional<Student> update(StudentDTO studentDTO) {
+        Student student = studentMapper.mappingFromStudentDTOtoStudent(studentDTO);
+        return Optional.of(studentRepository.save(student));
     }
 
     @Override
-    public Iterable<?> findByAll() {
-        return null;
+    public Iterable<Student> findByAll() {
+        return studentRepository.findAll();
     }
 
     @Override
-    public void deleteById(int id) {
-
+    public void deleteById(long id) {
+        studentRepository.deleteById(id);
     }
-
-
-
 
 
 }

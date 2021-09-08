@@ -27,7 +27,7 @@ public class CourseDTO {
     @NumberFormat(style = NumberFormat.Style.NUMBER)
     private int courseCredit;
 
-    @ApiModelProperty
+    @ApiModelProperty(example = "Please enter instructor id")
     private Long instructorId;
 
 

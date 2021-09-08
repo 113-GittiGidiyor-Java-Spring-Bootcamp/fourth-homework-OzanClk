@@ -51,7 +51,7 @@ public class ExceptionService implements BaseService<ApplicationErrorsResponseEn
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(long id) {
 
     }
 
